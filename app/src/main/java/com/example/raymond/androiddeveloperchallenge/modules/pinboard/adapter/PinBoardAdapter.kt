@@ -5,9 +5,8 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.bumptech.glide.Glide
 import com.example.raymond.androiddeveloperchallenge.R
-import com.example.raymond.androiddeveloperchallenge.core.utils.Utils
+import com.example.raymond.androiddeveloperchallenge.core.utils.ImageLoader
 import com.example.raymond.androiddeveloperchallenge.modules.pinboard.model.PinBoard
 import kotlinx.android.synthetic.main.item_pin_board.view.*
 
@@ -25,21 +24,16 @@ class PinBoardAdapter(val context: Context?, val items: List<PinBoard>) : Recycl
     override fun onBindViewHolder(holder: PinBoardAdapter.ViewHolder, position: Int) {
         val item = items[position]
 
-        holder.txt_name?.text = item._user.name
+        ImageLoader().loadImage(item._urls.full, holder.image_background, context)
 
+        holder.txt_name?.text = item._user.name
         if (item._likes != 0) {
             holder.ll_liked?.visibility = View.VISIBLE
             holder.txt_likes?.text = item._likes.toString()
         } else {
             holder.ll_liked?.visibility = View.GONE
             holder.img_like?.visibility = View.VISIBLE
-
         }
-
-        Glide.with(context)
-                .load(Utils().imageURLFormatter(item._urls.full))
-                .into(holder.image_background)
-
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
