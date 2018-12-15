@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">AndroidDeveloperChallenge</string>
+
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+
+    <!--Dialog message-->
+    <string name="dialog_message">Message</string>
+
+</resources>

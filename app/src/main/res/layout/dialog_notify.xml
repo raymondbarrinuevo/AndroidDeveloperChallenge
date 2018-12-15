@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:padding="@dimen/margin_padding_1.0x"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_size_24" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_title"
+        android:gravity="center"
+        android:padding="@dimen/margin_padding_1.0x"
+        android:text="message content"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/text_size_22" />
+
+    <View
+        android:id="@+id/button_line"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_padding_0.05x"
+        android:layout_below="@+id/tv_msg"
+        android:background="@color/divider_line"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_line"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <FrameLayout
+            android:id="@+id/btn_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="@dimen/margin_padding_1.0x"
+            android:layout_marginRight="@dimen/margin_padding_1.0x"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackground"
+            android:paddingLeft="@dimen/margin_padding_1.0x"
+            android:paddingRight="@dimen/margin_padding_1.0x">
+
+            <TextView
+                android:id="@+id/tv_ok"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_1.0x"
+                android:text="@android:string/ok"
+                android:textColor="@color/orange_opacity_30"
+                android:textSize="@dimen/text_size_22" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btn_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_padding_1.0x"
+            android:layout_marginRight="@dimen/margin_padding_1.0x"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackground"
+            android:paddingLeft="@dimen/margin_padding_1.0x"
+            android:paddingRight="@dimen/margin_padding_1.0x">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="@dimen/margin_padding_1.0x"
+                android:text="@string/cancel"
+                android:textSize="@dimen/text_size_22" />
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>
