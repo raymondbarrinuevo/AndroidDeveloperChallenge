@@ -8,5 +8,7 @@
 
     <!--Dialog message-->
     <string name="dialog_message">Message</string>
+    <string name="unknown_error">Unknown Error</string>
+    <string name="err_no_network">Can\'t connect internet. Please check your connection.</string>
 
 </resources>

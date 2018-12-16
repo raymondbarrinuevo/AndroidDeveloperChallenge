@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.raymond.androiddeveloperchallenge.R
 import com.example.raymond.androiddeveloperchallenge.core.customview.ProgressDialog
+import com.example.raymond.androiddeveloperchallenge.core.utils.Utils
 import com.example.raymond.androiddeveloperchallenge.core.view.BaseAppFragment
 import com.example.raymond.androiddeveloperchallenge.modules.pinboard.adapter.PinBoardAdapter
 import com.example.raymond.androiddeveloperchallenge.modules.pinboard.contract.PinBoardContract
@@ -15,7 +16,7 @@ import com.example.raymond.androiddeveloperchallenge.modules.pinboard.presenter.
 import kotlinx.android.synthetic.main.fragment_pin_board.*
 
 
-class PinBoardFragment : BaseAppFragment<PinBoardContract.Presenter>(), PinBoardContract.View {
+open class PinBoardFragment : BaseAppFragment<PinBoardContract.Presenter>(), PinBoardContract.View {
 
     var progressDialog: ProgressDialog? = null
     private lateinit var scrollListener: RecyclerView.OnScrollListener
@@ -34,7 +35,7 @@ class PinBoardFragment : BaseAppFragment<PinBoardContract.Presenter>(), PinBoard
                 super.onScrollStateChanged(recyclerView, newState)
                 val totalItemCount = recyclerView!!.layoutManager.itemCount
                 if (totalItemCount == lastVisibleItemPosition + 1) {
-                  
+
                     rcv_pin_board.removeOnScrollListener(scrollListener)
                 }
             }
@@ -61,8 +62,13 @@ class PinBoardFragment : BaseAppFragment<PinBoardContract.Presenter>(), PinBoard
     }
 
     override fun initViews() {
-        progressDialog = ProgressDialog(context)
-        progressDialog?.showProgress()
-        presenter?.getRawData()
+        if (Utils().isInternetOn(context)) {
+            progressDialog = ProgressDialog(context)
+            progressDialog?.showProgress()
+            presenter?.getRawData()
+        } else {
+            Toast.makeText(context, getString(R.string.err_no_network), Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

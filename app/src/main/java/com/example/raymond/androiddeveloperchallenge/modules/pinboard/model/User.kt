@@ -1,4 +1,4 @@
-package com.example.raymond.androiddeveloperchallenge.modules.profile.model
+package com.example.raymond.androiddeveloperchallenge.modules.pinboard.model
 
 import com.example.raymond.androiddeveloperchallenge.core.model.BaseModel
 

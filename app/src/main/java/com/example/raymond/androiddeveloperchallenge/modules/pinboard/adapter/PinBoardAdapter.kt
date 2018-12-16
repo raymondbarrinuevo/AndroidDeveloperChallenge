@@ -24,7 +24,7 @@ class PinBoardAdapter(val context: Context?, val items: List<PinBoard>) : Recycl
     override fun onBindViewHolder(holder: PinBoardAdapter.ViewHolder, position: Int) {
         val item = items[position]
 
-        ImageLoader().loadImage(item._urls.full, holder.image_background, context)
+        ImageLoader().loadImageFromUrl(item._urls.full, holder.image_background, context)
 
         holder.txt_name?.text = item._user.name
         if (item._likes != 0) {

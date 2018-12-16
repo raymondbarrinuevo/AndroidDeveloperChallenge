@@ -1,6 +1,5 @@
 package com.example.raymond.androiddeveloperchallenge.modules.pinboard.model
 
-import com.example.raymond.androiddeveloperchallenge.modules.profile.model.User
 import com.google.gson.annotations.SerializedName
 
 class PinBoard(@SerializedName("id") val _id: String,
