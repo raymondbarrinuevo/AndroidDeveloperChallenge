@@ -1,9 +1,9 @@
 package com.example.raymond.androiddeveloperchallenge.core.utils
 
 import android.content.Context
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import com.example.raymond.androiddeveloperchallenge.R
 import com.example.raymond.androiddeveloperchallenge.core.view.BaseAppActivity
 import com.example.raymond.androiddeveloperchallenge.core.view.BaseFragment

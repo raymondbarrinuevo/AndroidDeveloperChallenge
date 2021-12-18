@@ -1,11 +1,12 @@
 package com.example.raymond.androiddeveloperchallenge.core.view
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.fragment.app.Fragment
+import com.mobile.raymond.tindahan.core.view.BaseDialog
 
 abstract class BaseFragment : Fragment() {
 
@@ -20,7 +21,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frameLayout = FrameLayout(activity!!)
+        frameLayout = FrameLayout(requireActivity())
         this.container = container
         frameLayout?.addView(inflater.inflate(getLayoutId(), container, false))
         initViews()

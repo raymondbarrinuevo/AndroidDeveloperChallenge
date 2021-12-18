@@ -6,17 +6,19 @@ import com.example.raymond.androiddeveloperchallenge.core.contract.BaseContract
 import com.example.raymond.androiddeveloperchallenge.network.ApiManager
 import com.example.raymond.androiddeveloperchallenge.network.BaseProjectAPI
 import com.example.raymond.androiddeveloperchallenge.network.Request
+import com.google.gson.Gson
 
-abstract class BasePresenter : BaseContract.Presenter {
+abstract class BasePresenter<V : BaseContract.View> : BaseContract.Presenter {
 
     private var context: Context? = null
-    private var view: BaseContract.View? = null
     private var api: BaseProjectAPI? = null
     protected var rxManager: RxManager? = null
+    val gson: Gson = Gson()
+    private lateinit var view: V
 
     constructor(context: Context?) {
         this.context = context
-        this.api = ApiManager().getInstance()?.baseProjectAPI
+        this.api = ApiManager(context!!).getInstance()?.baseProjectAPI
         this.rxManager = RxManager(context)
     }
 
@@ -24,22 +26,12 @@ abstract class BasePresenter : BaseContract.Presenter {
         return context
     }
 
-    override fun attachView(view: BaseContract.View) {
-        this.view = view
-    }
-
     override fun detachView() {
-        if (view != null) {
-            view = null
-        }
+
     }
 
     override fun clear() {
         rxManager?.getDisposables()?.clear()
-    }
-
-    protected fun getView(): BaseContract.View? {
-        return view
     }
 
     protected fun getApi(): BaseProjectAPI? {

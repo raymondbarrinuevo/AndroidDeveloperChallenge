@@ -43,7 +43,7 @@ class RxCallAdapterWrapper<R> : CallAdapter<R, Any> {
         // We had non-200 http error
         if (throwable is HttpException) {
             val response = throwable.response()
-            return RetrofitException().httpError(response.raw().request().url().toString(), response, retrofit)
+            return RetrofitException().httpError(response?.raw()?.request?.url.toString(), response!!, retrofit)
         }
         // A network error happened
         return if (throwable is IOException) {

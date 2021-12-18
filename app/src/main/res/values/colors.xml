@@ -8,4 +8,8 @@
     <color name="text_black">#1a1a1a</color>
     <color name="divider_line">#c7c6c5</color>
     <color name="orange_opacity_30">#FF8A65</color>
+
+    <color name="dimgrey">#303030</color>
+    <color name="color_label">#ededed</color>
+    <color name="color_input_hint">#FFF</color>
 </resources>

@@ -7,10 +7,10 @@ import com.example.raymond.androiddeveloperchallenge.modules.main.contract.MainC
 import com.example.raymond.androiddeveloperchallenge.network.Request
 import io.reactivex.Flowable
 
-class MainPresenter(context: Context) : BasePresenter(context), MainContract.Presenter {
+class MainPresenter(context: Context) : BasePresenter<MainContract.View>(context),
+    MainContract.Presenter<MainContract.View> {
 
-    override fun getRawData() {
+    override fun attachView(view: MainContract.View) {
 
     }
-
 }

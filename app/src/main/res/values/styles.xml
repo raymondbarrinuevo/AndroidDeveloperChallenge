@@ -12,4 +12,18 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="TextInputLayout">
+        <item name="android:textColor">@color/dimgrey</item>
+        <item name="android:layout_height">@dimen/wrap_content</item>
+        <item name="android:layout_width">@dimen/input_width</item>
+    </style>
+
+    <style name="TextEdit">
+        <item name="android:background">@drawable/bg_background_rounded_all_corners</item>
+        <item name="android:textColor">@color/dimgrey</item>
+        <item name="android:layout_height">@dimen/match_parent</item>
+        <item name="android:layout_width">@dimen/match_parent</item>
+        <item name="android:padding">@dimen/margin_padding_1.6x</item>
+    </style>
+
 </resources>

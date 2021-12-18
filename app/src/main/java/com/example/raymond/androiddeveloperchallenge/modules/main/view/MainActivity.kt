@@ -1,22 +1,18 @@
 package com.example.raymond.androiddeveloperchallenge.modules.main.view
 
-import android.support.v4.app.Fragment
+
+import androidx.fragment.app.Fragment
 import com.example.raymond.androiddeveloperchallenge.R
-import com.example.raymond.androiddeveloperchallenge.core.contract.BaseContract
 import com.example.raymond.androiddeveloperchallenge.core.view.BaseActivity
+import com.example.raymond.androiddeveloperchallenge.modules.account_balance.view.AccountBalanceFragment
 import com.example.raymond.androiddeveloperchallenge.modules.main.contract.MainContract
 import com.example.raymond.androiddeveloperchallenge.modules.main.presenter.MainPresenter
-import com.example.raymond.androiddeveloperchallenge.modules.pinboard.model.PinBoard
-import com.example.raymond.androiddeveloperchallenge.modules.pinboard.view.PinBoardFragment
 import java.util.*
 
-class MainActivity : BaseActivity<MainContract.Presenter>(), MainContract.View {
+class MainActivity : BaseActivity<MainContract.Presenter<MainContract.View>>(), MainContract.View {
 
-    override fun showRawData(raw: List<PinBoard>) {
 
-    }
-
-    override fun createPresenterInstance(): MainContract.Presenter {
+    override fun createPresenterInstance(): MainContract.Presenter<MainContract.View> {
         return MainPresenter(this)
     }
 
@@ -25,7 +21,7 @@ class MainActivity : BaseActivity<MainContract.Presenter>(), MainContract.View {
     }
 
     override fun initViews() {
-        setContent(PinBoardFragment())
+        setContent(AccountBalanceFragment())
     }
 
     private val mListBackStack = ArrayList<Fragment>()
@@ -47,16 +43,5 @@ class MainActivity : BaseActivity<MainContract.Presenter>(), MainContract.View {
 
     override fun showMessage(message: String) {
 
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
-
-    fun popBackStackCustom(currentFragment: Fragment, fragment: Fragment) {
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.mainContainer, fragment, fragment.javaClass.simpleName)
-        transaction.commit()
-        mListBackStack.remove(currentFragment)
     }
 }

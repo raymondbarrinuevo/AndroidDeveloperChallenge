@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidDeveloperChallenge</string>
+    <string name="app_name">FinXP</string>
 
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
@@ -10,5 +10,7 @@
     <string name="dialog_message">Message</string>
     <string name="unknown_error">Unknown Error</string>
     <string name="err_no_network">Can\'t connect internet. Please check your connection.</string>
+
+    <string name="message_email_or_pass_empty">The username or password field is empty.</string>
 
 </resources>

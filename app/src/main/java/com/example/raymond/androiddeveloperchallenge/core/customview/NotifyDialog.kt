@@ -1,13 +1,33 @@
-package com.example.raymond.androiddeveloperchallenge.core.customview
+package com.mobile.raymond.tindahan.core.customview
 
 import android.os.Bundle
-import android.support.v4.app.FragmentManager
 import android.view.View
+import android.widget.FrameLayout
+import android.widget.TextView
+import butterknife.BindView
 import com.example.raymond.androiddeveloperchallenge.R
-import com.example.raymond.androiddeveloperchallenge.core.view.BaseDialog
-import kotlinx.android.synthetic.main.dialog_notify.*
+import com.mobile.raymond.tindahan.core.view.BaseDialog
+
 
 class NotifyDialog : BaseDialog() {
+
+    @BindView(R.id.tv_title)
+    lateinit var tvTitle: TextView
+
+    @BindView(R.id.tv_msg)
+    lateinit var tvMessage: TextView
+
+    @BindView(R.id.btn_cancel)
+    lateinit var btnCancel: FrameLayout
+
+    @BindView(R.id.btn_ok)
+    lateinit var btnOk: FrameLayout
+
+    @BindView(R.id.tv_cancel)
+    lateinit var tvCancel: TextView
+
+    @BindView(R.id.tv_ok)
+    lateinit var tvOk: TextView
 
     private var title: String? = null
     private var message: String? = null
@@ -23,7 +43,7 @@ class NotifyDialog : BaseDialog() {
         fun onRightButtonClick(vararg obj: Any)
     }
 
-    fun showDialog(fragmentManager: FragmentManager, title: String?,
+    fun showDialog(fragmentManager: androidx.fragment.app.FragmentManager, title: String?,
                    message: String?, positiveTitle: String?, negativeTitle: String?,
                    isShowCancel: Boolean, isChangeButtonPosition: Boolean, listener: OnNotifyCallback?) {
         val notifyDialog = NotifyDialog()
@@ -46,40 +66,68 @@ class NotifyDialog : BaseDialog() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initViews()
+        initActions()
+    }
+
+//    override fun onConfigurationChanged(newConfig: Configuration?) {
+//        super.onConfigurationChanged(newConfig)
+//        unbinder.unbind()
+//        frameLayout?.removeAllViews()
+//        val inflater = activity?.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+//        frameLayout?.addView(inflater.inflate(getDialogLayout(), container, false))
+//        unbinder = ButterKnife.bind(this, frameLayout!!)
+//        frameLayout?.addView(view)
+//
+//        initViews()
+//        initActions()
+//
+//    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 
     private fun initActions() {
-        btn_ok.setOnClickListener({ v ->
+        btnOk.setOnClickListener { v ->
             if (listener != null) {
                 listener?.onRightButtonClick()
             }
             dismiss()
-        })
+        }
 
-        btn_ok.setOnClickListener({ v ->
+        btnCancel.setOnClickListener { v ->
             if (listener != null) {
                 listener?.onLeftButtonClick()
             }
             dismiss()
-        })
+        }
     }
 
     private fun initViews() {
         if (title != null) {
-            tv_title.text = title
+            tvTitle.setText(title)
         }
 
         if (message != null) {
-            tv_msg.text = message
+            tvMessage.setText(message)
         }
 
         if (positiveTitle != null) {
-            tv_ok.text = positiveTitle
+            tvOk.setText(positiveTitle)
         }
 
         if (negativeTitle != null) {
-            tv_cancel.text = negativeTitle
+            tvCancel.setText(negativeTitle)
         }
-        tv_cancel.setVisibility(if (isShowCancel) View.VISIBLE else View.GONE)
+        if (isChangeButtonPosition) {
+            tvCancel.setTextColor(context?.getResources()?.getColor(R.color.orange_opacity_30)!!)
+            tvOk.setTextColor(context?.getResources()?.getColor(R.color.dimgrey)!!)
+        } else {
+            tvCancel.setTextColor(context?.getResources()?.getColor(R.color.dimgrey)!!)
+            tvOk.setTextColor(context?.getResources()?.getColor(R.color.orange_opacity_30)!!)
+        }
+        btnCancel.setVisibility(if (isShowCancel) View.VISIBLE else View.GONE)
     }
 }

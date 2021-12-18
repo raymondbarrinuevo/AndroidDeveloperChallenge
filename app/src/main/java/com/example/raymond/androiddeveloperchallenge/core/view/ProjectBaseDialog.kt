@@ -8,7 +8,7 @@ import android.graphics.drawable.ColorDrawable
 abstract class ProjectBaseDialog : Dialog {
 
     constructor(context: Context?)
-            : super(context) {
+            : super(context!!) {
         this.requestWindowFeature(1)
         this.window!!.setBackgroundDrawable(ColorDrawable(0))
         this.initDialog()

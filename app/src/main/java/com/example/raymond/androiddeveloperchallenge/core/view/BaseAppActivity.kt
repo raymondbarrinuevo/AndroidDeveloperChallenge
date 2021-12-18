@@ -1,9 +1,9 @@
 package com.example.raymond.androiddeveloperchallenge.core.view
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import com.example.raymond.androiddeveloperchallenge.core.customview.NotifyDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.example.raymond.androiddeveloperchallenge.core.utils.FragmentController
+import com.mobile.raymond.tindahan.core.customview.NotifyDialog
 
 abstract class BaseAppActivity : AppCompatActivity() {
 
