@@ -1,7 +1,7 @@
 # AndroidDeveloperChallenge
 
 Copy and paste APK file in your android device and install.
-in case app doesn't allow unknown sources.
+In case app doesn't allow unknown sources.
 please fallow this guide on allowing unknown sources to your device
 
 Guide allowing unknown sources
