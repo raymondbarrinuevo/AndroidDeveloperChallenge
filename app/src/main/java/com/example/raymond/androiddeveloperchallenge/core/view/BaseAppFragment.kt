@@ -18,11 +18,7 @@ abstract class BaseAppFragment<P : BaseContract.Presenter> : BaseFragment(), Bas
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         presenter = createPresenterInstance()
-        if (presenter != null) {
-            presenter?.attachView(this)
-        }
     }
 
     override fun onDestroyView() {

@@ -1,12 +1,17 @@
 package com.example.raymond.androiddeveloperchallenge.network
 
-import io.reactivex.Flowable
-import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.GET
+import retrofit2.http.*
 
 interface BaseProjectAPI {
 
-    @GET("raw/wgkJgazE")
-    fun getRaw(): Call<String>
+    @GET("balance")
+    fun getBalance(): Call<String>
+
+
+    @POST("login")
+    @Headers("Content-Type: application/x-www-form-urlencoded")
+    @FormUrlEncoded
+    fun login(@Field("email") email: String,
+              @Field("password") password: String): Call<String>
 }

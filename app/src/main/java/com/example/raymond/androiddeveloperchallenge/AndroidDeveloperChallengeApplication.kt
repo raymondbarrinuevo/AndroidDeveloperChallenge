@@ -3,7 +3,7 @@ package com.example.raymond.androiddeveloperchallenge
 import android.app.Application
 import android.content.Context
 import android.os.StrictMode
-import android.support.multidex.MultiDex
+import androidx.multidex.MultiDex
 import com.google.gson.Gson
 
 class AndroidDeveloperChallengeApplication : Application() {

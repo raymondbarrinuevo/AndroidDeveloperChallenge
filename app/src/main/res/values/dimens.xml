@@ -61,4 +61,7 @@
     <dimen name="img_logo_w">180dp</dimen>
     <dimen name="img_logo_h">180dp</dimen>
 
+    <item name="match_parent" format="integer" type="dimen">-1</item>
+    <item name="wrap_content" format="integer" type="dimen">-2</item>
+    <dimen name="input_width">220dp</dimen>
 </resources>

@@ -7,6 +7,7 @@ import com.example.raymond.androiddeveloperchallenge.R
 import com.example.raymond.androiddeveloperchallenge.core.view.ProjectBaseDialog
 import kotlinx.android.synthetic.main.progress_view.*
 
+
 class ProgressDialog(context: Context?) : ProjectBaseDialog(context) {
 
     override fun initDialog() {

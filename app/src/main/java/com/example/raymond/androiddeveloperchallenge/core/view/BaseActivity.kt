@@ -17,10 +17,6 @@ abstract class BaseActivity<P : BaseContract.Presenter> : BaseAppActivity(), Bas
 
     override fun onCreate(savedInstanceState: Bundle?) {
         presenter = createPresenterInstance()
-        if (presenter != null) {
-
-            presenter?.attachView(this)
-        }
         super.onCreate(savedInstanceState)
     }
 

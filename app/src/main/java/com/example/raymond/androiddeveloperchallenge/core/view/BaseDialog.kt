@@ -1,29 +1,31 @@
-package com.example.raymond.androiddeveloperchallenge.core.view
+package com.mobile.raymond.tindahan.core.view
 
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.support.v4.app.DialogFragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.FrameLayout
+import butterknife.ButterKnife
+import butterknife.Unbinder
 
-abstract class BaseDialog : DialogFragment() {
+abstract class BaseDialog : androidx.fragment.app.DialogFragment() {
 
     protected var container: ViewGroup? = null
     protected var frameLayout: FrameLayout? = null
-
+    protected lateinit var unbinder: Unbinder
 
     protected abstract fun getDialogLayout(): Int
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        frameLayout = FrameLayout(activity!!)
-        this.container = container;
+        frameLayout = FrameLayout(requireActivity())
         frameLayout?.addView(inflater.inflate(getDialogLayout(), container, false))
-        return super.onCreateView(inflater, container, savedInstanceState)
+        this.container = container
+        ButterKnife.bind(this, frameLayout!!)
+        return frameLayout
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

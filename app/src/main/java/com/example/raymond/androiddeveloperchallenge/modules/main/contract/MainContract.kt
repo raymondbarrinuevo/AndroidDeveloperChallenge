@@ -1,6 +1,7 @@
 package com.example.raymond.androiddeveloperchallenge.modules.main.contract
 
-import android.support.v4.app.Fragment
+
+import androidx.fragment.app.Fragment
 import com.example.raymond.androiddeveloperchallenge.core.contract.BaseContract
 
 class MainContract {
@@ -10,5 +11,10 @@ class MainContract {
 
     }
 
-    interface Presenter : BaseContract.Presenter
+    interface Presenter<V : View> : BaseContract.Presenter {
+
+        fun attachView(view: V)
+    }
+
+
 }
